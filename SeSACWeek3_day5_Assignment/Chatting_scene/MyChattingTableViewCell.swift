@@ -17,12 +17,15 @@ class MyChattingTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        backgroundColor = .blue
+        //backgroundColor = .blue
     }
     
     func configureData(row: Chat) {
+        myMessageLabel.font = .systemFont(ofSize: 12)
+        myMessageLabel.textAlignment = .right
         myMessageLabel.text = row.message
+        myDateLabel.font = .systemFont(ofSize: 10)
         myDateLabel.text = row.date
+        
     }
-    
 }

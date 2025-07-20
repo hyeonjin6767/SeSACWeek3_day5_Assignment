@@ -18,13 +18,18 @@ class PartnerChattingTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        backgroundColor = .brown
+        //backgroundColor = .brown
     }
 
     func configureData(row: Chat) {
         partnerImageView.image = UIImage(named: row.user.image)
+        partnerImageView.layer.cornerRadius = partnerImageView.frame.width / 2
+        partnerImageView.clipsToBounds = true
         partnerNameLabel.text = row.user.name
+        partnerNameLabel.font = .boldSystemFont(ofSize: 12)
         partnerMessageLabel.text = row.message
+        partnerMessageLabel.font = .systemFont(ofSize: 12)
         partnerDateLabel.text = row.date
+        partnerDateLabel.font = .systemFont(ofSize: 10)
     }
 }

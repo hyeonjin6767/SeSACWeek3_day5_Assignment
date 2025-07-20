@@ -33,7 +33,7 @@ class ChattingViewController: UIViewController, UITableViewDelegate, UITableView
         let xib2 = UINib(nibName: MyChattingTableViewCell.identifier, bundle: nil)
         chattingTableView.register(xib2, forCellReuseIdentifier: MyChattingTableViewCell.identifier)
         
-        chattingTableView.rowHeight = 100
+        chattingTableView.rowHeight = 120
         
 //        let layout = UICollectionViewFlowLayout()
 //        let deviceWidth = UIScreen.main.bounds.width

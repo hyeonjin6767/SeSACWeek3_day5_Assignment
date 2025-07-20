@@ -38,7 +38,7 @@ class ChattingDataViewController: UIViewController, UICollectionViewDelegate, UI
         layout.sectionInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
         layout.minimumLineSpacing = 8
         layout.scrollDirection = .vertical
-        //layout.minimumInteritemSpacing
+        //layout.minimumInteritemSpacing =
         chatListCollectionView.collectionViewLayout = layout
         
     }
