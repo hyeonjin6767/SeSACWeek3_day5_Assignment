@@ -42,7 +42,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="TRAVEL TALK" id="Qvl-iU-qE6"/>
+                    <navigationItem key="navigationItem" title="TRAVEL TALK" id="Qvl-iU-qE6">
+                        <barButtonItem key="backBarButtonItem" title=" " id="C76-4N-gAp"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="chatListCollectionView" destination="LUY-xn-2e0" id="624-FM-zbe"/>
                     </connections>
@@ -80,18 +82,49 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iOg-q7-sKw">
+                                <rect key="frame" x="16" y="792" width="361" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="inputMessageTextFEnded:" destination="mms-oN-pmH" eventType="editingDidEndOnExit" id="QIc-0c-nRY"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J7t-6s-aGo">
+                                <rect key="frame" x="335" y="791" width="42" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="arrowtriangle.right" catalog="system"/>
+                                <connections>
+                                    <action selector="messageUpdateButtonClicked:" destination="mms-oN-pmH" eventType="touchUpInside" id="iJ0-vd-7tE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="9EL-56-Wcl">
+                                <rect key="frame" x="43" y="56" width="59" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="pop"/>
+                                <connections>
+                                    <action selector="popBackButoon:" destination="mms-oN-pmH" eventType="touchUpInside" id="HRW-IW-Zo7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5oQ-8u-PXv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="qzO-kq-Y3J"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Title" id="WIR-2Q-CH9"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="chatroomNameNaviItem" destination="WIR-2Q-CH9" id="z5N-eb-bE1"/>
                         <outlet property="chattingCollectionView" destination="Bey-M2-BWs" id="77w-3G-Xgu"/>
+                        <outlet property="inputMessageTextF" destination="iOg-q7-sKw" id="wcg-zB-8qx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8V3-oY-d0K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2965.6488549618321" y="47.887323943661976"/>
+            <point key="canvasLocation" x="3085" y="48"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="PrU-99-om1">
@@ -112,25 +145,26 @@
             <point key="canvasLocation" x="306" y="48"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="cSi-Ov-sTb">
+        <scene sceneID="ruz-6t-AQ1">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hhY-yI-N1u" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HTg-d9-A1h" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="B1o-fN-ynh">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4zy-Rs-oWy">
                         <rect key="frame" x="0.0" y="118" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="mms-oN-pmH" kind="relationship" relationship="rootViewController" id="9mU-gI-VE4"/>
+                        <segue destination="mms-oN-pmH" kind="relationship" relationship="rootViewController" id="UIy-Au-pLS"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7r3-ve-Rdf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hhr-vR-IMc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2094" y="48"/>
+            <point key="canvasLocation" x="2156" y="48"/>
         </scene>
     </scenes>
     <resources>
+        <image name="arrowtriangle.right" catalog="system" width="128" height="113"/>
         <image name="chevron.backward" catalog="system" width="97" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

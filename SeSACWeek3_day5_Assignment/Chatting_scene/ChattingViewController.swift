@@ -10,15 +10,20 @@ import UIKit
 class ChattingViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     static let identifier = "ChattingViewController"
-    
-    let chattingInfo = ChatList.list
-    
+    var chattingInfo = ChatList.list
     var talkPartner: ChatRoom = ChatRoom(chatroomId: 0, chatroomImage: "", chatroomName: "", chatList: [Chat(user: User(name: "", image: ""), date: "", message: "")])
+    let dateFormat = DateFormatter()
 
     @IBOutlet var chattingCollectionView: UICollectionView!
+    @IBOutlet var inputMessageTextF: UITextField!
+    @IBOutlet var chatroomNameNaviItem: UINavigationItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureView()
+        inputMessageTextF.placeholder = "메세지를 입력하세요"
+    }
+    private func configureView() {
         chattingCollectionView.delegate = self
         chattingCollectionView.dataSource = self
         
@@ -39,22 +44,45 @@ class ChattingViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return chattingInfo[talkPartner.chatroomId - 1].chatList.count
+        return talkPartner.chatList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let clickPartner = "\(talkPartner.chatList[indexPath.item].user.name)"
-        print(clickPartner)
+        //print(clickPartner)
+        chatroomNameNaviItem.title = talkPartner.chatroomName
         if clickPartner == MyChattingCollectionViewCell.myName {
+            print("채팅 테스트")
             let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: MyChattingCollectionViewCell.identifier, for: indexPath) as! MyChattingCollectionViewCell
             myCell.configureData(item: talkPartner.chatList[indexPath.item])
             return myCell
         } else {
             let partnerCell = collectionView.dequeueReusableCell(withReuseIdentifier: PartnerChattingCollectionViewCell.identifier, for: indexPath) as! PartnerChattingCollectionViewCell
             partnerCell.configureData(item: talkPartner.chatList[indexPath.item])
+            
             return partnerCell
         }
+    }
+    
+    @IBAction func popBackButoon(_ sender: UIButton) {
+        navigationController?.popViewController(animated: true)
+        //값을 거꾸로 전달?
+        //ChattingDataViewController.newChatting.chatList.append(talkPartner.chatList)
+    }
+    
+    @IBAction func inputMessageTextFEnded(_ sender: UITextField) {
+        print("입력감지")
+        view.endEditing(true)
+    }
+    
+    @IBAction func messageUpdateButtonClicked(_ sender: UIButton) {
+        dateFormat.dateFormat = "hh:mm"
+        let value = dateFormat.string(from: Date())
+        talkPartner.chatList.append(Chat(user: User(name: MyChattingCollectionViewCell.myName, image: "Me"), date: value, message: "\(inputMessageTextF.text!)"))
+        chattingCollectionView.reloadData()
+        inputMessageTextF.text?.removeAll()
+        dump(talkPartner.chatList)
     }
     
 }

@@ -12,9 +12,20 @@ class ChattingDataViewController: UIViewController, UICollectionViewDelegate, UI
     @IBOutlet var chatListCollectionView: UICollectionView!
     
     let chatroomInfo = ChatList.list
+    static var newChatting: ChatRoom = ChatRoom(chatroomId: 0, chatroomImage: "", chatroomName: "", chatList: [Chat(user: User(name: "", image: ""), date: "", message: "")])
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureView()
+       
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //값을 거꾸로 전달?
+        //ChattingDataViewController.newChatting.chatList.append(<#T##newElement: Chat##Chat#>)
+    }
+    
+    private func configureView() {
         chatListCollectionView.delegate = self
         chatListCollectionView.dataSource = self
         
@@ -43,11 +54,10 @@ class ChattingDataViewController: UIViewController, UICollectionViewDelegate, UI
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        view.endEditing(true)
         let viewCon = storyboard?.instantiateViewController(withIdentifier: ChattingViewController.identifier) as! ChattingViewController
         viewCon.talkPartner = chatroomInfo[indexPath.item]
         navigationController?.pushViewController(viewCon, animated: true)
         
     }
-
 }
