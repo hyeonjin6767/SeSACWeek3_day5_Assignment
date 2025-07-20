@@ -7,14 +7,15 @@
 
 import UIKit
 
-class ChattingViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class ChattingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     static let identifier = "ChattingViewController"
     var chattingInfo = ChatList.list
     var talkPartner: ChatRoom = ChatRoom(chatroomId: 0, chatroomImage: "", chatroomName: "", chatList: [Chat(user: User(name: "", image: ""), date: "", message: "")])
     let dateFormat = DateFormatter()
 
-    @IBOutlet var chattingCollectionView: UICollectionView!
+    //@IBOutlet var chattingCollectionView: UICollectionView!
+    @IBOutlet var chattingTableView: UITableView!
     @IBOutlet var inputMessageTextF: UITextField!
     @IBOutlet var chatroomNameNaviItem: UINavigationItem!
     
@@ -24,43 +25,44 @@ class ChattingViewController: UIViewController, UICollectionViewDelegate, UIColl
         inputMessageTextF.placeholder = "메세지를 입력하세요"
     }
     private func configureView() {
-        chattingCollectionView.delegate = self
-        chattingCollectionView.dataSource = self
+        chattingTableView.delegate = self
+        chattingTableView.dataSource = self
         
-        let xib1 = UINib(nibName: PartnerChattingCollectionViewCell.identifier, bundle: nil)
-        chattingCollectionView.register(xib1, forCellWithReuseIdentifier: PartnerChattingCollectionViewCell.identifier)
-        let xib2 = UINib(nibName: MyChattingCollectionViewCell.identifier, bundle: nil)
-        chattingCollectionView.register(xib2, forCellWithReuseIdentifier: MyChattingCollectionViewCell.identifier)
-        let layout = UICollectionViewFlowLayout()
-        let deviceWidth = UIScreen.main.bounds.width
-        let cellWidth = deviceWidth - (16 * 2) - (16 * 0)
-        layout.itemSize = CGSize(width: cellWidth / 1, height: cellWidth / 3)
-        layout.sectionInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
-        layout.minimumLineSpacing = 8
-        layout.scrollDirection = .vertical
-        //layout.minimumInteritemSpacing
-        chattingCollectionView.collectionViewLayout = layout
+        let xib1 = UINib(nibName: PartnerChattingTableViewCell.identifier, bundle: nil)
+        chattingTableView.register(xib1, forCellReuseIdentifier: PartnerChattingTableViewCell.identifier)
+        let xib2 = UINib(nibName: MyChattingTableViewCell.identifier, bundle: nil)
+        chattingTableView.register(xib2, forCellReuseIdentifier: MyChattingTableViewCell.identifier)
+        
+        chattingTableView.rowHeight = 100
+        
+//        let layout = UICollectionViewFlowLayout()
+//        let deviceWidth = UIScreen.main.bounds.width
+//        let cellWidth = deviceWidth - (16 * 2) - (16 * 0)
+//        layout.itemSize = CGSize(width: cellWidth / 1, height: cellWidth / 3)
+//        layout.sectionInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+//        layout.minimumLineSpacing = 8
+//        layout.scrollDirection = .vertical
+//        //layout.minimumInteritemSpacing
+//        chattingCollectionView.collectionViewLayout = layout
         
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return talkPartner.chatList.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let clickPartner = "\(talkPartner.chatList[indexPath.item].user.name)"
         //print(clickPartner)
         chatroomNameNaviItem.title = talkPartner.chatroomName
-        if clickPartner == MyChattingCollectionViewCell.myName {
+        if clickPartner == MyChattingTableViewCell.myName {
             print("채팅 테스트")
-            let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: MyChattingCollectionViewCell.identifier, for: indexPath) as! MyChattingCollectionViewCell
-            myCell.configureData(item: talkPartner.chatList[indexPath.item])
+            let myCell = tableView.dequeueReusableCell(withIdentifier: MyChattingTableViewCell.identifier, for: indexPath) as! MyChattingTableViewCell
+            myCell.configureData(row: talkPartner.chatList[indexPath.row])
             return myCell
         } else {
-            let partnerCell = collectionView.dequeueReusableCell(withReuseIdentifier: PartnerChattingCollectionViewCell.identifier, for: indexPath) as! PartnerChattingCollectionViewCell
-            partnerCell.configureData(item: talkPartner.chatList[indexPath.item])
-            
+            let partnerCell = tableView.dequeueReusableCell(withIdentifier: PartnerChattingTableViewCell.identifier, for: indexPath) as! PartnerChattingTableViewCell
+            partnerCell.configureData(row: talkPartner.chatList[indexPath.row])
             return partnerCell
         }
     }
@@ -79,8 +81,8 @@ class ChattingViewController: UIViewController, UICollectionViewDelegate, UIColl
     @IBAction func messageUpdateButtonClicked(_ sender: UIButton) {
         dateFormat.dateFormat = "hh:mm"
         let value = dateFormat.string(from: Date())
-        talkPartner.chatList.append(Chat(user: User(name: MyChattingCollectionViewCell.myName, image: "Me"), date: value, message: "\(inputMessageTextF.text!)"))
-        chattingCollectionView.reloadData()
+        talkPartner.chatList.append(Chat(user: User(name: MyChattingTableViewCell.myName, image: "Me"), date: value, message: "\(inputMessageTextF.text!)"))
+        chattingTableView.reloadData()
         inputMessageTextF.text?.removeAll()
         dump(talkPartner.chatList)
     }
