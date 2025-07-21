@@ -21,15 +21,20 @@ class PartnerChattingTableViewCell: UITableViewCell {
         //backgroundColor = .brown
     }
 
+    // DispatchQueue.main.async
     func configureData(row: Chat) {
         partnerImageView.image = UIImage(named: row.user.image)
-        partnerImageView.layer.cornerRadius = partnerImageView.frame.width / 2
-        partnerImageView.clipsToBounds = true
         partnerNameLabel.text = row.user.name
         partnerNameLabel.font = .boldSystemFont(ofSize: 12)
         partnerMessageLabel.text = row.message
         partnerMessageLabel.font = .systemFont(ofSize: 12)
         partnerDateLabel.text = row.date
         partnerDateLabel.font = .systemFont(ofSize: 10)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        partnerImageView.layer.cornerRadius = partnerImageView.frame.width / 2
+        partnerImageView.clipsToBounds = true
     }
 }
