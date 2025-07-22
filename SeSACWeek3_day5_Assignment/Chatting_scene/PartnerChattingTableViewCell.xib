@@ -12,19 +12,19 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="98" id="KGk-i7-Jjw" customClass="PartnerChattingTableViewCell" customModule="SeSACWeek3_day5_Assignment" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="465" height="98"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="465" height="98"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AZb-uW-tAP">
-                        <rect key="frame" x="20" y="25" width="50" height="50"/>
+                        <rect key="frame" x="20" y="25" width="70" height="50"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="50" id="8XA-fE-edm"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="8XA-fE-edm"/>
                             <constraint firstAttribute="height" constant="50" id="aFP-Iy-wgL"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dnZ-Dc-KOi">
-                        <rect key="frame" x="80" y="25" width="85" height="21"/>
+                        <rect key="frame" x="100" y="25" width="65" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="DUe-ic-Yrv"/>
                             <constraint firstAttribute="height" constant="21" id="RZd-Nj-Gek"/>
@@ -34,7 +34,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fw2-LA-0lC">
-                        <rect key="frame" x="80" y="55" width="195" height="20"/>
+                        <rect key="frame" x="100" y="55.000000000000007" width="175" height="20.333333333333336"/>
                         <constraints>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="175" id="MG7-Db-LlF"/>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="k5A-bE-Tf4"/>
@@ -55,7 +55,7 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="AZb-uW-tAP" secondAttribute="bottom" constant="21" id="2fV-Kn-jjc"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="AZb-uW-tAP" secondAttribute="bottom" constant="21" id="2fV-Kn-jjc"/>
                     <constraint firstAttribute="trailing" secondItem="fw2-LA-0lC" secondAttribute="trailing" constant="190" id="AdL-ZY-V3f"/>
                     <constraint firstItem="fw2-LA-0lC" firstAttribute="top" secondItem="dnZ-Dc-KOi" secondAttribute="bottom" constant="9" id="Ck4-Wv-J6F"/>
                     <constraint firstItem="7TP-jK-tdf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="24" id="FaV-5o-Fkc"/>
@@ -64,7 +64,6 @@
                     <constraint firstItem="AZb-uW-tAP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="fNn-2O-Gjl"/>
                     <constraint firstItem="dnZ-Dc-KOi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="25" id="jN9-pc-e6V"/>
                     <constraint firstItem="fw2-LA-0lC" firstAttribute="leading" secondItem="AZb-uW-tAP" secondAttribute="trailing" constant="10" id="kIC-a0-oKT"/>
-                    <constraint firstItem="fw2-LA-0lC" firstAttribute="bottom" secondItem="AZb-uW-tAP" secondAttribute="bottom" id="mqk-ge-npb"/>
                     <constraint firstItem="dnZ-Dc-KOi" firstAttribute="top" secondItem="AZb-uW-tAP" secondAttribute="top" id="pEF-mI-D7H"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="fw2-LA-0lC" secondAttribute="bottom" constant="21" id="pi7-40-Kej"/>
                     <constraint firstItem="7TP-jK-tdf" firstAttribute="leading" secondItem="dnZ-Dc-KOi" secondAttribute="trailing" constant="130" id="taz-Pb-FvH"/>
