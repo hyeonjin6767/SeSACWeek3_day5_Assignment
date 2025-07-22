@@ -10,9 +10,10 @@ import UIKit
 class ChattingDataViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
         
     @IBOutlet var chatListCollectionView: UICollectionView!
+    @IBOutlet var searchBarTextField: UITextField!
     
     let chatroomInfo = ChatList.list
-    static var newChatting: ChatRoom = ChatRoom(chatroomId: 0, chatroomImage: "", chatroomName: "", chatList: [Chat(user: User(name: "", image: ""), date: "", message: "")])
+    var filter: [ChatRoom] = [ChatRoom(chatroomId: 0, chatroomImage: "", chatroomName: "", chatList: [Chat(user: User(name: "", image: ""), date: "", message: "")])]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +41,7 @@ class ChattingDataViewController: UIViewController, UICollectionViewDelegate, UI
         layout.scrollDirection = .vertical
         //layout.minimumInteritemSpacing =
         chatListCollectionView.collectionViewLayout = layout
+        searchBarTextField.placeholder = "친구 이름을 검색해보세요"
         
     }
     
@@ -47,12 +49,43 @@ class ChattingDataViewController: UIViewController, UICollectionViewDelegate, UI
         return chatroomInfo.count
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ChattingDataCollectionViewCell.identifier, for: indexPath) as! ChattingDataCollectionViewCell
         cell.configureData(item: chatroomInfo[indexPath.item])
         return cell
+       
     }
     
+    @IBAction func searchBarTextFEnded(_ sender: UITextField) {
+        //let all = ChatList.list
+        print(ChatList.list.count)
+        for i in 0...ChatList.list.count - 1 {
+            guard let searchName = searchBarTextField.text, chatroomInfo[i].chatroomName.contains(searchName) else {
+                print(chatroomInfo[i].chatroomName)
+                print("찾는 방 없음")
+                ChatList.list = chatroomInfo
+                return
+            }
+            filter.append(chatroomInfo[i])
+            ChatList.list = filter
+        }
+        chatListCollectionView.reloadData()
+    }
+    
+    func findRoomName(index: Int) {
+        
+        chatListCollectionView.reloadData()
+    }
+    
+//
+//    @IBAction func searchBarTextFEnded(_ sender: UITextField) {
+//        let all = chatroomInfo
+//        newChatting =
+//        
+//        
+//    }
+//    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         view.endEditing(true)
         let viewCon = storyboard?.instantiateViewController(withIdentifier: ChattingViewController.identifier) as! ChattingViewController
