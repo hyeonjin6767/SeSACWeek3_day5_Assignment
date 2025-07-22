@@ -16,13 +16,13 @@ class ChattingViewController: UIViewController, UITableViewDelegate, UITableView
 
     //@IBOutlet var chattingCollectionView: UICollectionView!
     @IBOutlet var chattingTableView: UITableView!
-    @IBOutlet var inputMessageTextF: UITextField!
     @IBOutlet var chatroomNameNaviItem: UINavigationItem!
+    @IBOutlet var inputMessageTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
-        inputMessageTextF.placeholder = "메세지를 입력하세요"
+        inputMessageTextView.text = "메세지를 입력하세요"
     }
     private func configureView() {
         chattingTableView.delegate = self
@@ -34,16 +34,6 @@ class ChattingViewController: UIViewController, UITableViewDelegate, UITableView
         chattingTableView.register(xib2, forCellReuseIdentifier: MyChattingTableViewCell.identifier)
         
         chattingTableView.rowHeight = UITableView.automaticDimension
-        
-//        let layout = UICollectionViewFlowLayout()
-//        let deviceWidth = UIScreen.main.bounds.width
-//        let cellWidth = deviceWidth - (16 * 2) - (16 * 0)
-//        layout.itemSize = CGSize(width: cellWidth / 1, height: cellWidth / 3)
-//        layout.sectionInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
-//        layout.minimumLineSpacing = 8
-//        layout.scrollDirection = .vertical
-//        //layout.minimumInteritemSpacing
-//        chattingCollectionView.collectionViewLayout = layout
         
     }
     
@@ -81,9 +71,9 @@ class ChattingViewController: UIViewController, UITableViewDelegate, UITableView
     @IBAction func messageUpdateButtonClicked(_ sender: UIButton) {
         dateFormat.dateFormat = "hh:mm"
         let value = dateFormat.string(from: Date())
-        talkPartner.chatList.append(Chat(user: User(name: MyChattingTableViewCell.myName, image: "Me"), date: value, message: "\(inputMessageTextF.text!)"))
+        talkPartner.chatList.append(Chat(user: User(name: MyChattingTableViewCell.myName, image: "Me"), date: value, message: "\(inputMessageTextView.text!)"))
         chattingTableView.reloadData()
-        inputMessageTextF.text?.removeAll()
+        inputMessageTextView.text?.removeAll()
         dump(talkPartner.chatList)
     }
     

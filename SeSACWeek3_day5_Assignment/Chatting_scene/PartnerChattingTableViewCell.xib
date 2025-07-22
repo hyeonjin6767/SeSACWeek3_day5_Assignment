@@ -34,7 +34,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fw2-LA-0lC">
-                        <rect key="frame" x="80" y="55" width="195" height="20"/>
+                        <rect key="frame" x="80" y="55.000000000000007" width="195" height="20.333333333333336"/>
                         <constraints>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="175" id="MG7-Db-LlF"/>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="k5A-bE-Tf4"/>
@@ -64,7 +64,7 @@
                     <constraint firstItem="AZb-uW-tAP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="fNn-2O-Gjl"/>
                     <constraint firstItem="dnZ-Dc-KOi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="25" id="jN9-pc-e6V"/>
                     <constraint firstItem="fw2-LA-0lC" firstAttribute="leading" secondItem="AZb-uW-tAP" secondAttribute="trailing" constant="10" id="kIC-a0-oKT"/>
-                    <constraint firstItem="fw2-LA-0lC" firstAttribute="bottom" secondItem="AZb-uW-tAP" secondAttribute="bottom" id="mqk-ge-npb"/>
+                    <constraint firstItem="fw2-LA-0lC" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="AZb-uW-tAP" secondAttribute="bottom" id="mqk-ge-npb"/>
                     <constraint firstItem="dnZ-Dc-KOi" firstAttribute="top" secondItem="AZb-uW-tAP" secondAttribute="top" id="pEF-mI-D7H"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="fw2-LA-0lC" secondAttribute="bottom" constant="21" id="pi7-40-Kej"/>
                     <constraint firstItem="7TP-jK-tdf" firstAttribute="leading" secondItem="dnZ-Dc-KOi" secondAttribute="trailing" constant="130" id="taz-Pb-FvH"/>
