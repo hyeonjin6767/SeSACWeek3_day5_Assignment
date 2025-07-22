@@ -15,6 +15,7 @@ class PartnerChattingTableViewCell: UITableViewCell {
     @IBOutlet var partnerNameLabel: UILabel!
     @IBOutlet var partnerMessageLabel: UILabel!
     @IBOutlet var partnerDateLabel: UILabel!
+    @IBOutlet var balloonUIView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,11 +31,16 @@ class PartnerChattingTableViewCell: UITableViewCell {
         partnerMessageLabel.font = .systemFont(ofSize: 12)
         partnerDateLabel.text = row.date
         partnerDateLabel.font = .systemFont(ofSize: 10)
+        
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         partnerImageView.layer.cornerRadius = partnerImageView.frame.width / 2
         partnerImageView.clipsToBounds = true
+        balloonUIView.layer.cornerRadius = 10
+        balloonUIView.layer.borderWidth = 0.5
+        balloonUIView.layer.borderColor = UIColor.black.cgColor
+        //balloonUIView.backgroundColor = .
     }
 }

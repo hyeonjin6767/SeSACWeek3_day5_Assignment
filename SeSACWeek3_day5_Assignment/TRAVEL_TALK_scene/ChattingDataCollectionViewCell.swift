@@ -23,9 +23,10 @@ class ChattingDataCollectionViewCell: UICollectionViewCell {
         //finn님's
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
-            chatroomImageView.contentMode = .scaleToFill //scaleToFill(확대해서 꽉 채워주는거) cf) scaleAspectFill(베율로 채워주는거라 꽉 안 찰수도 있어)
+            chatroomImageView.contentMode = .scaleAspectFit //scaleToFill(확대해서 꽉 채워주는거) cf) scaleAspectFill(베율로 채워주는거라 꽉 안 찰수도 있어)
             self.chatroomImageView.layer.cornerRadius = self.chatroomImageView.frame.width / 2
             self.chatroomImageView.clipsToBounds = true
+            chatroomImageView.backgroundColor = .orange
         }
     }
     
