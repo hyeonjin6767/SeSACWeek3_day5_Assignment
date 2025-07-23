@@ -14,6 +14,7 @@ class MyChattingTableViewCell: UITableViewCell {
 
     @IBOutlet var myMessageLabel: UILabel!
     @IBOutlet var myDateLabel: UILabel!
+    @IBOutlet var balloonUIView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,8 +25,13 @@ class MyChattingTableViewCell: UITableViewCell {
         myMessageLabel.font = .systemFont(ofSize: 12)
         myMessageLabel.textAlignment = .right
         myMessageLabel.text = row.message
+        myMessageLabel.backgroundColor = .clear
         myDateLabel.font = .systemFont(ofSize: 10)
         myDateLabel.text = row.date
+        balloonUIView.layer.cornerRadius = 10
+        balloonUIView.layer.borderWidth = 0.5
+        balloonUIView.layer.borderColor = UIColor.black.cgColor
+        balloonUIView.backgroundColor = .systemGray5
         
     }
 }

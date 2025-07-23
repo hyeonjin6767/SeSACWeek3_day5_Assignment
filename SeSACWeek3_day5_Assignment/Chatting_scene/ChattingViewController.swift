@@ -34,7 +34,7 @@ class ChattingViewController: UIViewController, UITableViewDelegate, UITableView
         chattingTableView.register(xib2, forCellReuseIdentifier: MyChattingTableViewCell.identifier)
         
         chattingTableView.rowHeight = UITableView.automaticDimension
-        
+
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
