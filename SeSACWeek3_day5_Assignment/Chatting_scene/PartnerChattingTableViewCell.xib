@@ -39,6 +39,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fw2-LA-0lC">
                         <rect key="frame" x="80" y="54.333333333333336" width="175" height="20.333333333333336"/>
+
                         <constraints>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="175" id="MG7-Db-LlF"/>
                         </constraints>
@@ -64,6 +65,7 @@
                     <constraint firstItem="edf-Wi-dnh" firstAttribute="trailing" secondItem="fw2-LA-0lC" secondAttribute="trailing" constant="5" id="h9K-vA-mbX"/>
                     <constraint firstItem="dnZ-Dc-KOi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="25" id="jN9-pc-e6V"/>
                     <constraint firstItem="fw2-LA-0lC" firstAttribute="leading" secondItem="AZb-uW-tAP" secondAttribute="trailing" constant="10" id="kIC-a0-oKT"/>
+
                     <constraint firstItem="dnZ-Dc-KOi" firstAttribute="top" secondItem="AZb-uW-tAP" secondAttribute="top" id="pEF-mI-D7H"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="fw2-LA-0lC" secondAttribute="bottom" constant="21" id="pi7-40-Kej"/>
                     <constraint firstItem="edf-Wi-dnh" firstAttribute="bottom" secondItem="fw2-LA-0lC" secondAttribute="bottom" constant="5" id="qKB-ld-Zrb"/>

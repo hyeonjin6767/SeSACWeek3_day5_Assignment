@@ -51,6 +51,7 @@ class ChattingDataViewController: UIViewController, UICollectionViewDelegate, UI
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        // 수업자료에 타입캐스팅 부분 복기
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ChattingDataCollectionViewCell.identifier, for: indexPath) as! ChattingDataCollectionViewCell
         cell.configureData(item: chatroomInfo[indexPath.item])
         return cell
@@ -59,9 +60,14 @@ class ChattingDataViewController: UIViewController, UICollectionViewDelegate, UI
     
     @IBAction func searchBarTextFEnded(_ sender: UITextField) {
         //let all = ChatList.list
-        print(ChatList.list.count)
-        for i in 0...ChatList.list.count - 1 {
+        //print(ChatList.list.count)
+        
+        print(chatroomInfo.count - 1)
+        
+        for i in 0...chatroomInfo.count - 1 {
+            
             guard let searchName = searchBarTextField.text, chatroomInfo[i].chatroomName.contains(searchName) else {
+                
                 print(chatroomInfo[i].chatroomName)
                 print("찾는 방 없음")
                 ChatList.list = chatroomInfo

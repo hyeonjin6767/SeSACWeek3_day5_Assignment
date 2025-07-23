@@ -103,6 +103,7 @@
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J7t-6s-aGo">
                                 <rect key="frame" x="300" y="785" width="46" height="34"/>
+
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="arrowtriangle.right" catalog="system"/>
                                 <connections>
@@ -128,6 +129,7 @@
                         <outlet property="chatroomNameNaviItem" destination="WIR-2Q-CH9" id="z5N-eb-bE1"/>
                         <outlet property="chattingTableView" destination="Gg9-2B-GPn" id="sT2-RI-Uy3"/>
                         <outlet property="inputMessageTextView" destination="d0H-46-9gR" id="PsP-Mu-RNS"/>
+
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8V3-oY-d0K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
